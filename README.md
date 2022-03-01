@@ -2,6 +2,12 @@
 
 This repo is meant to act as a reasonable foundation for a single NPM package developed in TypeScript. It makes use of a few tools that we've found particularly useful.
 
+## CircleCI
+
+This repo comes with a few Circle jobs already implemented (see [`.circleci/config.yml`](.circleci/config.yml)). Circle will run tests on the versions of Node specified in the matrix and enforce linting via Prettier.
+
+In order to enable CircleCI on your new repo, visit the [Apollo org's dashboard](https://app.circleci.com/projects/project-dashboard/github/apollographql/) and add your project. If your repo has already been initialized and added to the apollographql org, you should see the option to add your new project.
+
 ## Jest
 
 Jest is a testing framework used by most of Apollo's current projects.

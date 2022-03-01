@@ -50,3 +50,17 @@ jobs:
     steps:
       - setup-node
       - run: npm run prettier-check
+
+workflows:
+  version: 2
+  Build:
+    jobs:
+      - NodeJS:
+          name: NodeJS << matrix.node-version >>
+          matrix:
+            parameters:
+              node-version:
+                - "14"
+                - "16"
+                - "17"
+      - Prettier
