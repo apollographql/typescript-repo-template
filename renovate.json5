@@ -12,7 +12,7 @@
     // versions we support.
     {
       "matchPackageNames": ["@types/node"],
-      "allowedVersions": "12.x"
+      "allowedVersions": "14.x"
     },
   ],
 }
