@@ -74,10 +74,10 @@ If you're unfamiliar with Renovate, the docs are really worth perusing even if j
 Prettier is an opinionated code formatting tool. 
 
 To check for formatting issues:
-`npm run prettier-check`
+`npm run prettier:check`
 
 To auto-fix formatting issues:
-`npm run prettier-fix`
+`npm run prettier:fix`
 
 This is enforced in CI via the `Prettier` job.
 
