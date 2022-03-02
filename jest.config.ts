@@ -10,7 +10,7 @@ const config: Config.InitialOptions = {
       tsconfig: 'tsconfig.test.json',
     },
   },
-  testRegex: '/__tests__/.*\.test\.ts$',
+  testRegex: '/__tests__/.*.test.ts$',
   verbose: true,
 };
 
