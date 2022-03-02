@@ -15,7 +15,7 @@ Jest is a testing framework used by most of Apollo's current projects.
 To run tests in the repo:
 `npm test`
 
-The Jest configuration can be found at `jest.config.ts`. By default, Jest will run all `.ts` files found within any `__tests__` folder, as well as _any_ files ending in `.test.ts`. Typically, we put all of our tests in `__tests__` folders _and_ name them with the `.test.ts` suffix (as demonstrated by `src/__tests__/helloWorld.test.ts`). This is simply a convention and not a requirement.
+The Jest configuration can be found at `jest.config.ts`. As configured, Jest will run all files named `*.test.ts` found within any `__tests__` folder. This is simply a convention chosen by this repo and can be reconfigured via the `testRegex` configuration option in [`jest.config.ts`](jest.config.ts).
 
 For more information on configuring Jest see the [Jest docs](https://jestjs.io/docs/configuration).
 
@@ -23,19 +23,26 @@ For more information on configuring Jest see the [Jest docs](https://jestjs.io/d
 
 Changesets is a tool for managing package versioning, NPM releases, GitHub releases, and CHANGELOG entries. In this template, it comes configured for all of the above.
 
-### CHANGELOG updates
+### Basic usage
 
-For proper CHANGELOG management, you MUST configure the [`.changeset/config.json`](.changeset/config.json) file for your repo. The `changelog.repo` field must be the <org>/<name> of the repo.
-
-### NPM Publishing
-
-Changesets manages and updates a release PR automatically via a GitHub action [`.github/workflows/release-pr.yml`](.github/workflows/release-pr.yml). The PR consumes all of the committed changesets on `main` in order to bump versions of packages and update the CHANGELOG accordingly. Merging this PR will result in publishes to npm IF you've provided an `NPM_TOKEN` as a secret to your repo's GitHub actions (https://github.com/apollographql/<repo-name>/settings/secrets/actions). Please reach out to anyone in the #npm-apollo-bot-owners Slack channel for a token. Changesets will also publish a GitHub release when this PR is merged.
-
-> Our action borrows directly from the action provided by `changesets`. Visit [the changesets action repo](https://github.com/changesets/action) for more info.
+Changesets uses changeset files in the `.changeset` directory to determine what versioning upgrades need to happen next, along with related `CHANGELOG` updates and release notes. A changeset file is created by running `npx changeset` and following the prompts. PRs which make functional changes to the package should always come with an accompanying changeset file. The Changeset bot (details below) will comment on PRs as a reminder to contributors to include a changeset file when appropriate.
 
 ### Changeset bot
 
-You might also be interested in adding [`changeset-bot`](https://github.com/apps/changeset-bot) to the repo - it leaves comments about the changeset (or lack thereof) for each PR. This serves as a nice reminder and set of instructions for how to create a changeset.
+#### Installation
+
+[GitHub app](https://github.com/apps/changeset-bot)
+
+You might also be interested in adding `changeset-bot` to the repo - it leaves comments about the changeset (or lack thereof) for each PR. This serves as a nice reminder and set of instructions for how to create a changeset.
+### CHANGELOG updates
+
+For proper CHANGELOG management, you MUST configure the [`.changeset/config.json`](.changeset/config.json) file for your repo. The `changelog.repo` field must be the `<org>/<name>` of the repo.
+
+### NPM Publishing
+
+Changesets manages and updates a release PR automatically via a GitHub action [`.github/workflows/release-pr.yml`](.github/workflows/release-pr.yml). The PR consumes all of the committed changesets on `main` in order to bump versions of packages and update the `CHANGELOG` accordingly. Merging this PR will result in publishes to npm IF you've provided an `NPM_TOKEN` as a secret to your repo's GitHub actions (`https://github.com/apollographql/<repo-name>/settings/secrets/actions`). Please reach out to anyone in the `#npm-apollo-bot-owners` Slack channel for a token. Changesets will also publish a GitHub release when this PR is merged.
+
+> Our action borrows directly from the action provided by `changesets`. Visit [the changesets action repo](https://github.com/changesets/action) for more info.
 
 ### Removing Changesets
 
