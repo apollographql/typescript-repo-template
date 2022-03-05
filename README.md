@@ -1,6 +1,24 @@
 # TypeScript Template
 
-This repo is meant to act as a reasonable foundation for a single NPM package developed in TypeScript. It makes use of a few tools that we've found particularly useful.
+This repo is meant to act as a reasonable foundation for a single NPM package developed in TypeScript. It makes use of a few tools that we've found particularly useful. Below are some notes on how to get started using these tools and ways in which you might want (or need) to configure them.
+
+## GitHub
+
+In the GitHub settings tab, we typically configure a few things.
+
+**General**
+✅ Automatically delete head branches
+
+**Collaborators and Teams**
+Add relevant teams and contributors with appropriate roles
+
+**Branches**
+Typically we add a branch protection rule for `main`
+Generally, this rule enables:
+* ✅ Require a pull request before merging
+  * ✅ Require approvals (1)
+* ✅ Require status checks to pass before merging
+  * Each status check must be selected via the search box. Typing "ci/" will show you a list of the ones which exist within this template. "CLA" should also be enabled.
 
 ## CircleCI
 
@@ -32,6 +50,7 @@ Changesets uses changeset files in the `.changeset` directory to determine what 
 #### Installation
 
 [GitHub app](https://github.com/apps/changeset-bot)
+> Note: a GitHub admin must approve app installations. By adding a GitHub app to your repo, you'll be submitting a request for approval. At the time of writing this, the GitHub UI doesn't make this clear.
 
 You might also be interested in adding `changeset-bot` to the repo - it leaves comments about the changeset (or lack thereof) for each PR. This serves as a nice reminder and set of instructions for how to create a changeset.
 ### CHANGELOG updates
@@ -52,11 +71,12 @@ If you're not interested in using `changesets`, just delete the [workflow](.gith
 
 ## CodeSandbox CI
 
+> At the time of writing this, CodeSandbox CI only works for public repos.
+
 ### Installation
 
-> Note: At the time of writing this, CodeSandbox CI only works for public repos.
-
 [GitHub app](https://github.com/apps/codesandbox)
+> Note: a GitHub admin must approve app installations. By adding a GitHub app to your repo, you'll be submitting a request for approval. At the time of writing this, the GitHub UI doesn't make this clear.
 
 CodeSandbox CI provides an installable build of your package on every PR. If your package builds successfully, CS:CI will leave a comment on the PR with instructions on how to try out your build in a project. This gives contributors access to their work immediately, allowing them to manually test their builds or even use a fix right away.
 
@@ -69,6 +89,8 @@ CS:CI will also provide links to sandboxes which use your newly built package if
 ### Installation
 
 [GitHub app](https://github.com/apps/renovate)
+
+> Note: a GitHub admin must approve app installations. By adding a GitHub app to your repo, you'll be submitting a request for approval. At the time of writing this, the GitHub UI doesn't make this clear.
 
 Renovate automates dependency updates. The bot will open and merge PRs with updates to a variety of dependencies (including but not limited to npm dependencies). Renovate is _highly_ configurable via the [renovate.json5](renovate.json5) file. Package restrictions and scheduling are just a couple things that we commonly configure.
 
