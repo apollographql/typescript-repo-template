@@ -94,6 +94,8 @@ CS:CI will also provide links to sandboxes which use your newly built package if
 
 Renovate automates dependency updates. The bot will open and merge PRs with updates to a variety of dependencies (including but not limited to npm dependencies). Renovate is _highly_ configurable via the [renovate.json5](renovate.json5) file. Package restrictions and scheduling are just a couple things that we commonly configure.
 
+If you've configured PRs to require approval (mentioned in [GitHub](#github)), you may want to also install [Renovate's Approve bot](https://github.com/apps/renovate-approve). The approve bot will approve all renovate PRs in order to appease the PR approval requirement.
+
 If you're unfamiliar with Renovate, the docs are really worth perusing even if just to get an idea of what kinds of configuration are possible.
 
 > For additional information on configuring Renovate, [visit the docs](https://docs.renovatebot.com/).
