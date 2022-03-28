@@ -20,6 +20,9 @@ Generally, this rule enables:
 * ✅ Require status checks to pass before merging
   * Each status check must be selected via the search box. Typing "ci/" will show you a list of the ones which exist within this template. "CLA" should also be enabled.
 
+**Code Security and Analysis**
+* Enable "Dependabot security updates" to receive security-related PRs from Dependabot
+
 ## CircleCI
 
 This repo comes with a few Circle jobs already implemented (see [`.circleci/config.yml`](.circleci/config.yml)). Circle will run tests on the versions of Node specified in the matrix and enforce linting via Prettier.
