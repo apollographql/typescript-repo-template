@@ -1,4 +1,3 @@
-// To be used / extended by all projects in the monorepo.
 import type { Config } from '@jest/types';
 
 const config: Config.InitialOptions = {
