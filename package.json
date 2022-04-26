@@ -16,16 +16,17 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "engines": {
-    "node": ">=12.0"
+    "node": ">=14.0"
   },
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
     "clean": "git clean -dfqX",
     "install-with-npm-8.5": "npm i -g npm@^8.5.0 && npm i",
     "postinstall": "npm run build",
-    "prettier:check": "prettier --check .",
-    "prettier:fix": "prettier --write .",
+    "prettier-check": "prettier --check .",
+    "prettier-fix": "prettier --write .",
     "publish-changeset": "changeset publish",
+    "spell-check": "cspell lint '**' --no-progress || (echo 'Add any real words to cspell-dict.txt.'; exit 1)",
     "test": "jest",
     "test:ci": "jest --coverage --ci --maxWorkers=2 --reporters=default --reporters=jest-junit",
     "watch": "tsc --build --watch"
@@ -35,6 +36,7 @@
     "@changesets/cli": "2.22.0",
     "@types/jest": "27.4.1",
     "@types/node": "14.18.15",
+    "cspell": "5.19.7",
     "jest": "27.5.1",
     "jest-junit": "13.2.0",
     "prettier": "2.6.2",
