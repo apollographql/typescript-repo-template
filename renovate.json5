@@ -5,8 +5,6 @@
     // https://github.com/apollographql/renovate-config-apollo-open-source/blob/master/package.json
     "apollo-open-source",
   ],
-  "schedule": null,
-  "prCreation": "immediate",
   "packageRules": [
     // Bunch up all non-major dependencies into a single PR.  In the common case
     // where the upgrades apply cleanly, this causes less noise and is resolved faster
