@@ -55,7 +55,46 @@ Changesets uses changeset files in the `.changeset` directory to determine what 
 [GitHub app](https://github.com/apps/changeset-bot)
 > Note: a GitHub _org_ admin must approve app installations. By adding a GitHub app to your repo, you'll be submitting a request for approval. At the time of writing this, the GitHub UI doesn't make this clear.
 
+
 You might also be interested in adding `changeset-bot` to the repo - it leaves comments about the changeset (or lack thereof) for each PR. This serves as a nice reminder and set of instructions for how to create a changeset.
+
+### Changesets enforced in CI (alternative to Changeset bot)
+
+The `changeset-bot` will leave a comment on every PR. If you'd prefer to enforce changesets in CI without the additional noise, you can do so by adding a step to your CircleCI config. We use the following in the Apollo Server repo:
+
+```yaml
+  # Ensure that any PR that changes packages has a changeset on it (perhaps
+  # an empty one created with `changeset --empty`).
+  # We run the Changesets job itself on all branches so that we can require
+  # it to pass, but we don't run any steps on the "Version Packages" PRs
+  # themselves.
+  Changesets:
+    docker:
+    - image: cimg/base:stable
+    steps:
+      - run: echo Ensure there is at least one step
+      - unless:
+          condition:
+            matches:
+              pattern: "^changeset-release/.+$"
+              value: << pipeline.git.branch >>
+          steps:
+            - setup-node
+            - run: npm run changeset-check
+```
+
+The referenced script `changeset-check` is defined in `package.json` and is a simple script that runs `changeset status` and exits with a non-zero status if there are any changesets missing like so:
+
+```json
+{
+  // ...
+  "scripts": {
+    // ...
+    "changeset-check": "changeset-check": "changeset status --verbose --since=origin/main"
+  }
+}
+```
+
 ### CHANGELOG updates
 
 For proper CHANGELOG management, you MUST configure the [`.changeset/config.json`](.changeset/config.json) file for your repo. The `changelog.repo` field must be the `<org>/<name>` of the repo.
