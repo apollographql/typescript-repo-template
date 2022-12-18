@@ -32,8 +32,8 @@
     "watch": "tsc --build --watch"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "0.4.7",
-    "@changesets/cli": "2.25.2",
+    "@changesets/changelog-github": "0.4.8",
+    "@changesets/cli": "2.26.0",
     "@types/jest": "29.2.4",
     "@types/node": "14.18.35",
     "cspell": "6.17.0",
