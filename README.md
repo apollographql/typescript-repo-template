@@ -105,6 +105,8 @@ Changesets manages and updates a release PR automatically via a GitHub action [`
 
 > Our action borrows directly from the action provided by `changesets`. Visit [the changesets action repo](https://github.com/changesets/action) for more info.
 
+Packages using this template will publish [with provenance](https://github.blog/2023-04-19-introducing-npm-package-provenance/). This is enabled in the `.npmrc` file.
+
 ### Removing Changesets
 
 If you're not interested in using `changesets`, just delete the [workflow](.github/workflows/release-pr.yml), uninstall the related dependencies, and delete the related scripts.
