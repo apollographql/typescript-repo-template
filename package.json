@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/apollographql/typescript-repo-template"
+    "url": "git+https://github.com/apollographql/typescript-repo-template"
   },
   "homepage": "https://github.com/apollographql/typescript-repo-template#readme",
   "bugs": {

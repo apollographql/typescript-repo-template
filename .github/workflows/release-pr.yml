@@ -13,6 +13,8 @@ jobs:
       # OpenID Connect token, used for publishing with provenance
       # Ref: https://github.blog/2023-04-19-introducing-npm-package-provenance/
       id-token: write
+      contents: write
+      pull-requests: write
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
