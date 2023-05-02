@@ -5,4 +5,5 @@ cimg
 circleci
 codesandbox
 direnv
+npmrc
 opde
