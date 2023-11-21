@@ -16,7 +16,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "engines": {
-    "node": ">=16.0"
+    "node": ">=18.0"
   },
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
@@ -36,7 +36,7 @@
     "@changesets/cli": "2.26.2",
     "@jest/globals": "29.7.0",
     "@types/jest": "29.5.8",
-    "@types/node": "16.18.62",
+    "@types/node": "18.18.11",
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",
     "cspell": "7.3.9",
