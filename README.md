@@ -101,7 +101,7 @@ For proper CHANGELOG management, you MUST configure the [`.changeset/config.json
 
 ### NPM Publishing
 
-Changesets manages and updates a release PR automatically via a GitHub action [`.github/workflows/release-pr.yml`](.github/workflows/release-pr.yml). The PR consumes all of the committed changesets on `main` in order to bump versions of packages and update the `CHANGELOG` accordingly. Merging this PR will result in publishes to npm IF you've provided an `NPM_TOKEN` as a secret to your repo's GitHub actions (`https://github.com/apollographql/<repo-name>/settings/secrets/actions`). Please reach out to anyone in the `#npm-apollo-bot-owners` Slack channel for a token. Changesets will also publish a GitHub release when this PR is merged.
+Changesets manages and updates a release PR automatically via a GitHub action [`.github/workflows/release-pr.yml`](.github/workflows/release-pr.yml). The PR consumes all of the committed changesets on `main` in order to bump versions of packages and update the `CHANGELOG` accordingly. Merging this PR will result in publishes to npm IF you correctly configured the package's OpenIDConnect section in the npm repository settings.
 
 > Our action borrows directly from the action provided by `changesets`. Visit [the changesets action repo](https://github.com/changesets/action) for more info.
 
